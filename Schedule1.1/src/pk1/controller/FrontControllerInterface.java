@@ -1,16 +1,13 @@
 package pk1.controller;
-
 import java.util.LinkedHashMap;
-
-public class FrontControllerInterface {
+public interface FrontControllerInterface {
 	/**
 	 * Setta il nuovo pannello richiesto
 	 * 
 	 * @param request
 	 * 			la richiesta identificativa del pannello
 	 */
-	public void processRequest(String request) {
-	}
+	public void processRequest(String request);
 	
 	/**
 	 * Elabora richieste di dati
@@ -20,9 +17,6 @@ public class FrontControllerInterface {
 	 * @return
 	 * 		il risultato del richiesta processata
 	 */
-	public Object processRequest(String key, LinkedHashMap<String, Object> p) {
-		return null;
-	}
+	public Object processRequest(String key, LinkedHashMap<String, Object> p);
+
 }
-
-
