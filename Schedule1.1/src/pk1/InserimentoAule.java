@@ -211,7 +211,7 @@ public class InserimentoAule extends javax.swing.JFrame implements ActionListene
 			
 			try
 			{
-				Connection conn = Login.d.getIstance();
+				Connection conn = Login.d.getInstance();
 				Statement stmt=conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
 				String query;
 				

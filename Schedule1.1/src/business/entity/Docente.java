@@ -14,8 +14,8 @@ public class Docente extends Identificato {
 	private String ubiUfficio;
 
 	public Docente(String login, String password, String corsoLaurea, String nomeInsegnamento, String nome,
-			String cognome, String dataNascita, String residenzaAb, String indirizzoAb, String telefono, String email,
-			String indWeb, int nPiano, String ubiUfficio) {
+			String cognome, String dataNascita, String residenzaAb, int nPiano, String telefono, String email,
+			String indWeb, String indirizzoAb, String ubiUfficio) {
 		super(login, password, corsoLaurea, nomeInsegnamento);
 		// TODO Auto-generated constructor stub
 

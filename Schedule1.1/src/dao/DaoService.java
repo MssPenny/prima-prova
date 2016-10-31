@@ -1,8 +1,11 @@
 package dao;
 
+
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+
+
 
 
 
@@ -15,7 +18,7 @@ public class DaoService extends Dao {
 	// per identificare parametro di tipo integer
 
 	static final String PARAM_INT = "Integer";
-
+	static final String PARAM_FLOAT = "Float";
 	/*
 	 * esecuzione di un inserimento nel DB
 	 * 
@@ -74,24 +77,27 @@ public class DaoService extends Dao {
 	 * @param i
 	 *            la posizione in cui inserire il parametro
 	 * @return lo statement modificato
-	 */
-	public PreparedStatement setParameter(PreparedStatement statement, Object param, int i) {
-		try {
-			switch (param.getClass().getSimpleName()) {
-			case PARAM_STRINGA:
-				statement.setString(i, (String) param);
-				break;
-			case PARAM_INT:
-				statement.setInt(i, (Integer) param);
-				break;
-			default:
-				break;
+	 */public PreparedStatement setParameter(PreparedStatement statement,
+				Object param, int i) {
+			try {
+				switch (param.getClass().getSimpleName()) {
+				case PARAM_STRINGA:
+					statement.setString(i, (String) param);
+					break;
+				case PARAM_INT:
+					statement.setInt(i, (Integer) param);
+					break;
+				case PARAM_FLOAT:
+					statement.setFloat(i, (Float) param);
+					break;
+				default:
+					break;
+				}
+			} catch (SQLException e) {
+		System.err.println("");
 			}
-		} catch (SQLException e) {
-			System.out.println("si e' verificato un errore:\n\n".concat(e.getMessage()));
-		}
 
-		return statement;
-	}
+			return statement;
+		}
 
 }

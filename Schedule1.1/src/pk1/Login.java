@@ -266,7 +266,7 @@ public class Login extends javax.swing.JFrame implements ActionListener {
 //					Connection conn=DriverManager.getConnection("jdbc:mysql://localhost:3306/schedule_dib","root","root");
 //					conn.setAutoCommit(false);
 					
-					Connection conn=d.getIstance();
+					Connection conn=d.getInstance();
 					conn.setAutoCommit(false);
 					Statement stmt=conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
 					

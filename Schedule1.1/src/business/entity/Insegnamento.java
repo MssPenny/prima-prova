@@ -24,6 +24,12 @@ public class Insegnamento extends BO {
 		return nome;
 	}
 
+	@Override
+	public String toString() {
+		return "Insegnamento [nome=" + nome + ", corsoLaurea=" + corsoLaurea + ", nCrediti=" + nCrediti + ", anno="
+				+ anno + ", propedeutico=" + propedeutico + ", laboratorio=" + laboratorio + ", valutazione="
+				+ valutazione + "]";
+	}
 	public void setNome(String nome) {
 		this.nome = nome;
 	}

@@ -15,6 +15,12 @@ public class Aula extends BO {
 		this.tipologia = tipologia;
 	}
 
+	@Override
+	public String toString() {
+		return "Aula [nome=" + nome + ", nPosti=" + nPosti + ", nPiano=" + nPiano + ", ubicazione=" + ubicazione
+				+ ", tipologia=" + tipologia + "]";
+	}
+
 	public String getNome() {
 		return nome;
 	}
@@ -54,6 +60,5 @@ public class Aula extends BO {
 	public void setTipologia(String tipologia) {
 		this.tipologia = tipologia;
 	}
-
 
 }

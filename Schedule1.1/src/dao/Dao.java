@@ -44,7 +44,7 @@ public class Dao {
 	}
  
 
-	public Connection getIstance() {
+	public Connection getInstance() {
 		return conn;
 	}
 }

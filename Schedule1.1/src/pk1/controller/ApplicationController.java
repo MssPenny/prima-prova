@@ -2,19 +2,6 @@ package pk1.controller;
 
 import java.util.LinkedHashMap;
 
-import business.entity.Cliente;
-import business.service.GestioneAgenzia;
-import business.service.GestioneAgenzieDiPrenotazioni;
-import business.service.GestioneAmministratore;
-import business.service.GestioneCliente;
-import business.service.GestioneContratto;
-import business.service.GestioneFascia;
-import business.service.GestioneLogin;
-import business.service.GestionePrenotazione;
-import business.service.GestioneVettura;
-import business.service.ServiceInterface;
-import presentation.Login;
-import presentation.ViewDispatcher;
 
 /**
  * Classe chiamata dal front controller per gestire tutte le richieste delle
@@ -31,12 +18,12 @@ public class ApplicationController implements ApplicationControllerInt{
 	/**
 	 * Istanza della classe {@link ViewDispatcher}
 	 */
-	private ViewDispatcher view;
+//	private ViewDispatcher view;
 	
 	/**
 	 * Istanza della classe {@link GestioneLogin}
 	 */
-	private GestioneLogin login;
+//	private GestioneLogin login;
 	
 	/**
 	 * Istanza della classe {@link GestioneVettura}
@@ -198,9 +185,22 @@ public class ApplicationController implements ApplicationControllerInt{
 	 */
 	final static String FASCIA = "schermate/Fascia.fxml";
 
+	@Override
+	public void dispatchRequest(String request) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public Object handleRequest(String key, LinkedHashMap<String, Object> p) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 	/**
 	 * Cotruisce un istanza di questa classe
 	 */
+	/*
 	public ApplicationController() {
 		login = new GestioneLogin();
 		view = new ViewDispatcher();
@@ -219,7 +219,7 @@ public class ApplicationController implements ApplicationControllerInt{
 	 * 
 	 * @param request
 	 *            la richiesta da soddisfare
-	 */
+	 *
 	public void dispatchRequest(String request)  {
 
 		switch (request) {
@@ -317,7 +317,7 @@ public class ApplicationController implements ApplicationControllerInt{
 	 * 		i dati da elaborare
 	 * @return
 	 * 		la risposta alla richiesta
-	 */
+	 *
 	public Object handleRequest(String key, LinkedHashMap<String, Object> p)
 			  {
 		Object result = null;
@@ -435,5 +435,6 @@ public class ApplicationController implements ApplicationControllerInt{
 		}
 		return result;
 	}
+	*/
 
 }
