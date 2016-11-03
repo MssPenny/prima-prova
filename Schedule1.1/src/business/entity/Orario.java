@@ -1,6 +1,6 @@
 package business.entity;
 
-public class Orario extends Insegnamento {
+public class Orario extends BO {
 
 	private String giorno1;
 	private String oraInizio1;
@@ -11,12 +11,12 @@ public class Orario extends Insegnamento {
 	private String giorno3;
 	private String oraInizio3;
 	private String oraFine3;
+	private String NomeInsegn;
+	private String CorsoLaurea;
 
-	public Orario(String nome, String corsoLaurea, int nCrediti, String anno, String propedeutico, String laboratorio,
-			String valutazione, String giorno1, String oraInizio1, String oraFine1, String giorno2, String oraInizio2,
-			String oraFine2, String giorno3, String oraInizio3, String oraFine3) {
-		super(nome, corsoLaurea, nCrediti, anno, propedeutico, laboratorio, valutazione);
-		// TODO Auto-generated constructor stub
+	public Orario(String giorno1, String oraInizio1, String oraFine1, String giorno2, String oraInizio2,
+			String oraFine2, String giorno3, String oraInizio3, String oraFine3, String NomeInsegn,
+			String CorsoLaurea) {
 
 		this.giorno1 = giorno1;
 		this.oraInizio1 = oraInizio1;
@@ -27,6 +27,8 @@ public class Orario extends Insegnamento {
 		this.giorno3 = giorno3;
 		this.oraInizio3 = oraInizio3;
 		this.oraFine3 = oraFine3;
+		this.NomeInsegn = NomeInsegn;
+		this.CorsoLaurea = CorsoLaurea;
 	}
 
 	public String getGiorno1() {
@@ -92,13 +94,29 @@ public class Orario extends Insegnamento {
 	public void setOraInizio3(String oraInizio3) {
 		this.oraInizio3 = oraInizio3;
 	}
-
+	
 	public String getOraFine3() {
 		return oraFine3;
 	}
 
 	public void setOraFine3(String oraFine3) {
 		this.oraFine3 = oraFine3;
+	}
+
+	public String getNomeInsegn() {
+		return NomeInsegn;
+	}
+
+	public void setNomeInsegn(String NomeInsegn) {
+		this.NomeInsegn = NomeInsegn;
+	}
+
+	public String getCorsoLaurea() {
+		return CorsoLaurea;
+	}
+
+	public void setCorsoLaurea(String CorsoLaurea) {
+		this.CorsoLaurea = CorsoLaurea;
 	}
 
 }

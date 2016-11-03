@@ -11,7 +11,7 @@ public class DaoInsegnamento extends DaoService implements DaoInterface {
 	String QUERY_INSERIMENTO_INSEGNAMENTO = "INSERT INTO `schedule_dib`.`dati_insegnamento` (`Nome_insegn`, `Corso_laurea`, `Ncrediti`, `Anno`, `Propedeutico`, `Laboratorio`, `Valutazione`) VALUES (?, ?, ?, ?, ?, ?,?)";
 	String QUERY_ELIMINA_INSEGNAMENTO = "DELETE FROM `schedule_dib`.`dati_insegnamento` WHERE `Nome_insegn`=?";
 	String QUERY_UPDATE_INSEGNAMENTO = "UPDATE `schedule_dib`.`dati_insegnamento` SET `Nome_insegn`=?, `Corso_laurea`=?, `Ncrediti`=?, `Anno`=?, `Propedeutico`=?, `Laboratorio`=?, `Valutazione`=?  WHERE `Nome_insegn` = ? ;";
-	String SELECT_INSEGNAMENTO = "Select `Nome_insegn`, `Corso_laurea`, `Ncrediti`, `Anno`, `Propedeutico`, `Laboratorio`, `Valutazione` FROM `schedule_dib`.`dati_insegnamento`  WHERE `Nome_insegn` = ? ";
+	String SELECT_INSEGNAMENTO = "SELECT `Nome_insegn`, `Corso_laurea`, `Ncrediti`, `Anno`, `Propedeutico`, `Laboratorio`, `Valutazione` FROM `schedule_dib`.`dati_insegnamento`  WHERE `Nome_insegn` = ? ";
 
 	Dao dao;
 

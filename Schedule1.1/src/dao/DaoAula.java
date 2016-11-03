@@ -113,14 +113,14 @@ public class DaoAula extends DaoService implements DaoInterface {
 	public boolean delete(BO bo) {
 		Aula aula = (Aula) bo;
 
-		PreparedStatement inserimentoAula = null;
+		PreparedStatement cancellaAula = null;
 
 		try {
 			int index = 1;
-			inserimentoAula = dao.getInstance().prepareStatement(QUERY_ELIMINA_AULA);
-			inserimentoAula = setParameter(inserimentoAula, aula.getNome(), index++);
+			cancellaAula = dao.getInstance().prepareStatement(QUERY_ELIMINA_AULA);
+			cancellaAula = setParameter(cancellaAula, aula.getNome(), index++);
 
-			insertQuery(inserimentoAula);
+			insertQuery(cancellaAula);
 
 		} catch (SQLException e) {
 
