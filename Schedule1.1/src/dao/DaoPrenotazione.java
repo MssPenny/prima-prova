@@ -97,10 +97,10 @@ public class DaoPrenotazione extends DaoService implements DaoInterface {
 		try {
 			ricercaPre = dao.getInstance().prepareStatement(SELECT_PRENOTAZIONE);
 			setParameter(ricercaPre, prenotazione.getAula(), 1);
-			setParameter(ricercaPre, prenotazione.getData(), 1);
-			setParameter(ricercaPre, prenotazione.getOraInizio(), 1);
-			setParameter(ricercaPre, prenotazione.getOraFine(), 1);
-			setParameter(ricercaPre, prenotazione.getnPiano(), 1);
+			setParameter(ricercaPre, prenotazione.getData(), 2);
+			setParameter(ricercaPre, prenotazione.getOraInizio(), 3);
+			setParameter(ricercaPre, prenotazione.getOraFine(), 4);
+			setParameter(ricercaPre, prenotazione.getnPiano(), 5);
 
 			ResultSet resultsRicercaPre = selectQuery(ricercaPre);
 

@@ -23,6 +23,7 @@ import javax.swing.WindowConstants;
 
 import business.entity.BO;
 import dao.Dao;
+import dao.DaoCorso;
 import dao.DaoInsegnamento;
 
 import javax.swing.SwingUtilities;
@@ -261,7 +262,7 @@ public class VisualizzaInsegnamento extends javax.swing.JFrame implements Action
 							String query;
 							Dao dao = new Dao();
 							dao.getInstance();
-							DaoInsegnamento daoi = new DaoInsegnamento();
+							DaoCorso daoi = new DaoCorso();
 							daoi.read(new BO());
 							
 							query="Select * from corsi";
