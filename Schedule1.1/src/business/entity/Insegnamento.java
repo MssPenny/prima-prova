@@ -20,6 +20,7 @@ public class Insegnamento extends BO {
 		this.valutazione = valutazione;
 
 	}
+
 	public String getNome() {
 		return nome;
 	}
@@ -30,6 +31,7 @@ public class Insegnamento extends BO {
 				+ anno + ", propedeutico=" + propedeutico + ", laboratorio=" + laboratorio + ", valutazione="
 				+ valutazione + "]";
 	}
+
 	public void setNome(String nome) {
 		this.nome = nome;
 	}

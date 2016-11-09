@@ -38,7 +38,6 @@ public class DaoInsegnamento extends DaoService implements DaoInterface {
 			updateInsegnamento = setParameter(updateInsegnamento, insegnamento.getPropedeutico(), index++);
 			updateInsegnamento = setParameter(updateInsegnamento, insegnamento.getLaboratorio(), index++);
 			updateInsegnamento = setParameter(updateInsegnamento, insegnamento.getValutazione(), index++);
-
 			updateInsegnamento = setParameter(updateInsegnamento, insegnamento.getNome(), index++);
 
 			updateDeleteQuery(updateInsegnamento);
@@ -51,6 +50,8 @@ public class DaoInsegnamento extends DaoService implements DaoInterface {
 
 	}
 
+	
+	@Override
 	public void search(BO o) {
 		// TODO Auto-generated method stub
 

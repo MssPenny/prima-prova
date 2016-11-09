@@ -31,6 +31,13 @@ public class Orario extends BO {
 		this.CorsoLaurea = CorsoLaurea;
 	}
 
+	public String toString() {
+		return "Orario [giorno1=" + giorno1 + ", oraInizio1=" + oraInizio1 + ", oraFine1=" + oraFine1 + ", giorno2="
+				+ giorno2 + ", oraInizio2=" + oraInizio2 + ", oraFine2=" + oraFine2 + ", giorno3=" + giorno3
+				+ ", oraInizio3=" + oraInizio3 + ", oraFine3=" + oraFine3 + ", NomeInsegn=" + NomeInsegn + ", CorsoLaurea="
+				+ CorsoLaurea + "]";
+	}
+
 	public String getGiorno1() {
 		return giorno1;
 	}
@@ -94,7 +101,7 @@ public class Orario extends BO {
 	public void setOraInizio3(String oraInizio3) {
 		this.oraInizio3 = oraInizio3;
 	}
-	
+
 	public String getOraFine3() {
 		return oraFine3;
 	}

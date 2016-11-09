@@ -10,7 +10,7 @@ public class DaoAula extends DaoService implements DaoInterface {
 	String QUERY_INSERIMENTO_AULA = "INSERT INTO `schedule_dib`.`dati_aule` (`Nome`, `Nposti`, `Npiano`, `Ubicazione`, `Tipologia`) VALUES (?, ?, ?, ?, ?)";
 	String QUERY_ELIMINA_AULA = "DELETE FROM `schedule_dib`.`dati_aule` WHERE `Nome`=?";
 	String QUERY_UPDATE_AULA = "UPDATE `schedule_dib`.`dati_aule` SET `Nome`=?, `Nposti`=?, `Npiano`=?, `Ubicazione`=?, `Tipologia`=?  WHERE `Nome` = ? ;";
-	String SELECT_AULA = "Select `Nome`, `Nposti`, `Npiano`, `Ubicazione`, `Tipologia` FROM `schedule_dib`.`dati_aule`  WHERE `Nome` = ? ";
+	String SELECT_AULA = "SELECT `Nome`, `Nposti`, `Npiano`, `Ubicazione`, `Tipologia` FROM `schedule_dib`.`dati_aule`  WHERE `Nome` = ? ";
 
 	Dao dao;
 

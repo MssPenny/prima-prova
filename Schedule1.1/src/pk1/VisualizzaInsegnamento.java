@@ -20,6 +20,11 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.WindowConstants;
+
+import business.entity.BO;
+import dao.Dao;
+import dao.DaoInsegnamento;
+
 import javax.swing.SwingUtilities;
 
 /**
@@ -254,6 +259,10 @@ public class VisualizzaInsegnamento extends javax.swing.JFrame implements Action
 							conn.setAutoCommit(false);
 							Statement stmt=conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
 							String query;
+							Dao dao = new Dao();
+							dao.getInstance();
+							DaoInsegnamento daoi = new DaoInsegnamento();
+							daoi.read(new BO());
 							
 							query="Select * from corsi";
 							ResultSet rs=stmt.executeQuery(query);

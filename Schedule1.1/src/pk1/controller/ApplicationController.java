@@ -1,6 +1,7 @@
 package pk1.controller;
 
 import java.util.LinkedHashMap;
+import business.entity.Docente;
 
 
 /**
@@ -11,9 +12,9 @@ import java.util.LinkedHashMap;
 public class ApplicationController implements ApplicationControllerInt{
 
 	/**
-	 * Istanza della classe {@link Cliente}
+	 * Istanza della classe {@link Docente}
 	 */
-	private ServiceInterface cliente;
+	private ServiceInterface docente;
 	
 	/**
 	 * Istanza della classe {@link ViewDispatcher}

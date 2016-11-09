@@ -31,6 +31,11 @@ public class Docente extends Identificato {
 		this.ubiUfficio = ubiUfficio;
 	}
 
+	public String toString() {
+		return "Docente [nome=" + nome + ", cognome=" + cognome + ", dataNascita=" + dataNascita + ", residenzaAb=" + residenzaAb
+				+ ", indirizzoAb=" + indirizzoAb + ", telefono=" + telefono + ", email=" + email + ", indWeb=" + indWeb + ", nPiano=" + nPiano + ", ubiUfficio=" + ubiUfficio + "]";
+	}
+
 	public String getNome() {
 		return nome;
 	}
