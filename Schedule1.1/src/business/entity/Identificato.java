@@ -14,6 +14,12 @@ public class Identificato extends BO {
 		this.nomeInsegnamento = nomeInsegnamento;
 	}
 
+	public Identificato(String login, String password) {
+		this.login = login;
+		this.password = password;
+
+	}
+
 	public String toString() {
 		return "Identificato [login=" + login + ", password=" + password + ", corsoLaurea=" + corsoLaurea
 				+ ", nomeInsegnamento=" + nomeInsegnamento + "]";

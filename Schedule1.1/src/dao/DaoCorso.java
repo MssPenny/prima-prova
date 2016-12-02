@@ -3,6 +3,10 @@ package dao;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Vector;
+
 import business.entity.BO;
 import business.entity.Corso;
 
@@ -37,10 +41,12 @@ public class DaoCorso extends DaoService implements DaoInterface {
 		}
 		return true;
 	}
-
-	@Override
-	public BO read(BO bo) {
-		String corsoLaurea = "";
+	public BO read(BO o){
+		return o;}
+	 
+	
+	public List<BO> readTuttiCorsi(BO bo) {
+		List<BO> v=null;
 		Corso i = null;
 		Corso corso = (Corso) bo;
 		PreparedStatement ricercaCor = null;
@@ -50,21 +56,20 @@ public class DaoCorso extends DaoService implements DaoInterface {
 			setParameter(ricercaCor, corso.getCorsoLaurea(), 1);
 
 			ResultSet resultsRicercaCor = selectQuery(ricercaCor);
-
-			if (resultsRicercaCor.next()) {
-
-				corsoLaurea = resultsRicercaCor.getString("Corso_laurea");
-
-			} else {
-				throw new SQLException();
-			}
-
-			i = new Corso(corsoLaurea);
+			 
+			  v=new ArrayList<BO>();
+			 
+			while(resultsRicercaCor.next())
+			{
+				Corso c = new Corso(resultsRicercaCor.getString("Corso_laurea"));
+				v.add(c );
+				 
+			} 
 
 		} catch (SQLException e) {
 			return null;
 		}
-		return i;
+		return v;
 	}
 
 	@Override

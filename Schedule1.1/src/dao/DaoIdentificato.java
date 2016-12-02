@@ -3,13 +3,18 @@ package dao;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+
 import business.entity.BO;
+import business.entity.Corso;
 import business.entity.Identificato;
 import dao.DaoService;
 import dao.Dao;
 
 public class DaoIdentificato extends DaoService {
 
+	String SELECT_CORSO = "SELECT DISTINCT `Corso_laurea` FROM `schedule_dib`.`associa_doc` WHERE `Login` = ? AND `Password` = ?";
 	String SELECT_UTENTE = "Select `Login`, `Password` FROM `schedule_dib`.`associa_doc`  WHERE `Login` = ? ";
 	/**
 	 * Permette di cercare un utente tramite la login
@@ -51,6 +56,36 @@ public class DaoIdentificato extends DaoService {
 		}
 		return tipo;
 
+	}
+
+	//legge il corso laurea passando login e password
+	public List<BO> read(BO bo) {
+		List<BO> v = null;
+		Identificato i = null;
+		Identificato identificato = (Identificato) bo;
+		PreparedStatement ricercaCor = null;
+
+		try {
+			ricercaCor = dao.getInstance().prepareStatement(SELECT_CORSO);
+			setParameter(ricercaCor, identificato.getLogin(), 1);
+			setParameter(ricercaCor, identificato.getPassword(), 2);
+
+			ResultSet resultsRicercaCor = selectQuery(ricercaCor);
+
+			v = new ArrayList<BO>();
+
+			while (resultsRicercaCor.next()) {
+				Identificato c = new Identificato(resultsRicercaCor.getString("Corso_laurea"),
+						resultsRicercaCor.getString("Login"), resultsRicercaCor.getString("Password"),
+						resultsRicercaCor.getString("Nome_insegn"));
+				v.add(c);
+
+			}
+
+		} catch (SQLException e) {
+			return null;
+		}
+		return v;
 	}
 
 }

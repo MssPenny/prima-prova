@@ -1,5 +1,6 @@
 package dao;
 
+import java.util.LinkedList;
 import java.util.Scanner;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -10,8 +11,9 @@ import business.entity.Insegnamento;
 public class DaoInsegnamento extends DaoService implements DaoInterface {
 	String QUERY_INSERIMENTO_INSEGNAMENTO = "INSERT INTO `schedule_dib`.`dati_insegnamento` (`Nome_insegn`, `Corso_laurea`, `Ncrediti`, `Anno`, `Propedeutico`, `Laboratorio`, `Valutazione`) VALUES (?, ?, ?, ?, ?, ?,?)";
 	String QUERY_ELIMINA_INSEGNAMENTO = "DELETE FROM `schedule_dib`.`dati_insegnamento` WHERE `Nome_insegn`=?";
-	String QUERY_UPDATE_INSEGNAMENTO = "UPDATE `schedule_dib`.`dati_insegnamento` SET `Nome_insegn`=?, `Corso_laurea`=?, `Ncrediti`=?, `Anno`=?, `Propedeutico`=?, `Laboratorio`=?, `Valutazione`=?  WHERE `Nome_insegn` = ? ;";
+	String QUERY_UPDATE_INSEGNAMENTO = "UPDATE `schedule_dib`.`dati_insegnamento` SET `Nome_insegn`=?, `Corso_laurea`=?, `Ncrediti`=?, `Anno`=?, `Propedeutico`=?, `Laboratorio`=?, `Valutazione`=?  WHERE `Nome_insegn` = ? AND `Corso_laurea`=?;";
 	String SELECT_INSEGNAMENTO = "SELECT `Nome_insegn`, `Corso_laurea`, `Ncrediti`, `Anno`, `Propedeutico`, `Laboratorio`, `Valutazione` FROM `schedule_dib`.`dati_insegnamento`  WHERE `Nome_insegn` = ? ";
+	String SELECT_CORSODILAUREAINSEGNAMENTO = "SELECT * FROM `schedule_dib`.`dati_insegnamento` WHERE `Corso_laurea` = ?  AND `Nome_insegn` = ?  ";
 
 	Dao dao;
 
@@ -122,6 +124,45 @@ public class DaoInsegnamento extends DaoService implements DaoInterface {
 
 		} catch (SQLException e) {
 			return null;
+		}
+		return i;
+	}
+	
+	public LinkedList<Insegnamento> readImseCor(BO bo) {
+
+		String nomeIns = "";
+		String corsoLaurea = "";
+		int nCrediti;
+		String anno = "";
+		String propedeutico = "";
+		String laboratorio = "";
+		String valutazione = "";
+		LinkedList<Insegnamento> i = null;
+		Insegnamento insegnamento = (Insegnamento) bo;
+		PreparedStatement ricercaIns = null;
+
+		try {
+			ricercaIns = dao.getInstance().prepareStatement(SELECT_CORSODILAUREAINSEGNAMENTO);
+			setParameter(ricercaIns, insegnamento.getNome(), 1);
+			setParameter(ricercaIns, insegnamento.getCorsoLaurea(), 2);
+
+			ResultSet resultsRicercaIns = selectQuery(ricercaIns);
+
+		while (resultsRicercaIns.next()) {
+
+				nomeIns = resultsRicercaIns.getString("Nome_insegn");
+				corsoLaurea = resultsRicercaIns.getString("Corso_laurea");
+				nCrediti = resultsRicercaIns.getInt("Ncrediti");
+				anno = resultsRicercaIns.getString("Anno");
+				propedeutico = resultsRicercaIns.getString("Propedeutico");
+				laboratorio = resultsRicercaIns.getString("Laboratorio");
+				valutazione = resultsRicercaIns.getString("Valutazione");
+
+		
+			i.add( new Insegnamento(nomeIns, corsoLaurea, nCrediti, anno, propedeutico, laboratorio, valutazione));
+
+		}}catch(SQLException e){
+			e.printStackTrace();
 		}
 		return i;
 	}

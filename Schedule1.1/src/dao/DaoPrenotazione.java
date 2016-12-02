@@ -185,18 +185,18 @@ public class DaoPrenotazione extends DaoService implements DaoInterface {
 
 	// cerca tutte le prenotazioni ordinate per data crescente di un determinato
 	// corso di laurea in input
-	public List<BO> searchCorso(String corsolaurea) {
+	public List<BO> searchCorso(BO corsoLaurea) {
 		PreparedStatement query = null;
 		List<BO> prenotazioni = new ArrayList<BO>();
 		try {
 			query = dao.getInstance().prepareStatement(SELECT_CORSODILAUREA);
 
-			setParameter(query, corsolaurea, 1);
+			setParameter(query, ((Prenotazione)corsoLaurea).getCorsoLaurea(), 1);
 
 			ResultSet result = selectQuery(query);
 
 			while (result.next()) {
-				String corsoLaurea = result.getString("Corso_laurea");
+				String corso_laurea = result.getString("Corso_laurea");
 				String nomeInsegn = result.getString("Nome_insegn");
 				String data = result.getString("Data");
 				String oraIniz = result.getString("Ora_inizio");
@@ -206,7 +206,7 @@ public class DaoPrenotazione extends DaoService implements DaoInterface {
 				String tipologia = result.getString("Tipologia");
 				String note = result.getString("Note");
 
-				Prenotazione c = new Prenotazione(corsoLaurea, nomeInsegn, data, oraIniz, oraFin, aula, nPiano,
+				Prenotazione c = new Prenotazione(corso_laurea, nomeInsegn, data, oraIniz, oraFin, aula, nPiano,
 						tipologia, note);
 				prenotazioni.add(c);
 			}
@@ -435,8 +435,7 @@ public class DaoPrenotazione extends DaoService implements DaoInterface {
 	}
 	@Override
 	public void search(BO bo) {
-		// TODO Auto-generated method stub
-
+	 
 	}
 
 	public static void main(String[] args) {

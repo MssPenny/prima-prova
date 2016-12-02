@@ -20,7 +20,12 @@ public class Insegnamento extends BO {
 		this.valutazione = valutazione;
 
 	}
+	public Insegnamento(String nome, String corsoLaurea) {
+		this.nome = nome;
+		this.corsoLaurea = corsoLaurea;
+		 
 
+	}
 	public String getNome() {
 		return nome;
 	}

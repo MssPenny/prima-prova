@@ -10,4 +10,5 @@ public boolean delete(BO o);
 
 public void search(BO o);
 
+
 }

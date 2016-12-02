@@ -31,11 +31,22 @@ public class Orario extends BO {
 		this.CorsoLaurea = CorsoLaurea;
 	}
 
+	public Orario(String NomeInsegn, String CorsoLaurea) {
+
+		this.NomeInsegn = NomeInsegn;
+		this.CorsoLaurea = CorsoLaurea;
+	}
+
+	public Orario(String CorsoLaurea) {
+
+		this.CorsoLaurea = CorsoLaurea;
+	}
+
 	public String toString() {
 		return "Orario [giorno1=" + giorno1 + ", oraInizio1=" + oraInizio1 + ", oraFine1=" + oraFine1 + ", giorno2="
 				+ giorno2 + ", oraInizio2=" + oraInizio2 + ", oraFine2=" + oraFine2 + ", giorno3=" + giorno3
-				+ ", oraInizio3=" + oraInizio3 + ", oraFine3=" + oraFine3 + ", NomeInsegn=" + NomeInsegn + ", CorsoLaurea="
-				+ CorsoLaurea + "]";
+				+ ", oraInizio3=" + oraInizio3 + ", oraFine3=" + oraFine3 + ", NomeInsegn=" + NomeInsegn
+				+ ", CorsoLaurea=" + CorsoLaurea + "]";
 	}
 
 	public String getGiorno1() {
